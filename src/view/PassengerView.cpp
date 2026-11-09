@@ -21,9 +21,8 @@ PassengerView::PassengerView(Passenger &pass, AirportController &controller)
 }
 
 void PassengerView::setPosition(const Vector2 &pos) {
-  // FIXME After Lab 1
-  // setPos(pos.x - WORLD_LEFT - PASSENGER_SVG_SIZE / 2,
-  //        WORLD_TOP - pos.y - PASSENGER_SVG_SIZE / 2);
+  setPos(pos.x - WORLD_LEFT - PASSENGER_SVG_SIZE / 2,
+         WORLD_TOP - pos.y - PASSENGER_SVG_SIZE / 2);
 }
 
 void PassengerView::setFloor(int floor) {

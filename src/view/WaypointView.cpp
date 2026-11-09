@@ -34,9 +34,8 @@ void WaypointView::updatePositions() {
 
   prepareGeometryChange();
 
-  // FIXME After Lab 1
-  // Vector2 wp1(pos1.x - WORLD_LEFT, WORLD_TOP - pos1.y);
-  // setRect(wp1.x - rad1, wp1.y - rad1, WP_RADIUS * 2, WP_RADIUS * 2);
+  Vector2 wp1(pos1.x - WORLD_LEFT, WORLD_TOP - pos1.y);
+  setRect(wp1.x - rad1, wp1.y - rad1, WP_RADIUS * 2, WP_RADIUS * 2);
 }
 
 void WaypointView::highlight() {

@@ -31,20 +31,19 @@ WaypointEdgeView::~WaypointEdgeView() {
 }
 
 void WaypointEdgeView::updatePositions() {
-  // FIXME After Lab 1
-  // Vector2 c1(wp1->getPosition().x - WORLD_LEFT,
-  //            WORLD_TOP - wp1->getPosition().y);
-  // Vector2 c2(wp2->getPosition().x - WORLD_LEFT,
-  //            WORLD_TOP - wp2->getPosition().y);
-  // Vector2 v(c2.x - c1.x, c2.y - c1.y);
-  // v.normalize();
-  // Vector2 e1(c1.x + v.x * WP_RADIUS, c1.y + v.y * WP_RADIUS);
-  // Vector2 e2(c2.x - v.x * WP_RADIUS, c2.y - v.y * WP_RADIUS);
-  // main.setLine(e1.x, e1.y, e2.x, e2.y);
-  // Vector2 t1l(e2.x - v.y - v.x, e2.y + v.x + v.y);
-  // tipL.setLine(e2.x, e2.y, t1l.x, t1l.y);
-  // Vector2 t1r(e2.x + v.y - v.x, e2.y - v.x - v.y);
-  // tipR.setLine(e2.x, e2.y, t1r.x, t1r.y);
+  Vector2 c1(wp1->getPosition().x - WORLD_LEFT,
+             WORLD_TOP - wp1->getPosition().y);
+  Vector2 c2(wp2->getPosition().x - WORLD_LEFT,
+             WORLD_TOP - wp2->getPosition().y);
+  Vector2 v(c2.x - c1.x, c2.y - c1.y);
+  v.normalize();
+  Vector2 e1(c1.x + v.x * WP_RADIUS, c1.y + v.y * WP_RADIUS);
+  Vector2 e2(c2.x - v.x * WP_RADIUS, c2.y - v.y * WP_RADIUS);
+  main.setLine(e1.x, e1.y, e2.x, e2.y);
+  Vector2 t1l(e2.x - v.y - v.x, e2.y + v.x + v.y);
+  tipL.setLine(e2.x, e2.y, t1l.x, t1l.y);
+  Vector2 t1r(e2.x + v.y - v.x, e2.y - v.x - v.y);
+  tipR.setLine(e2.x, e2.y, t1r.x, t1r.y);
 }
 
 void WaypointEdgeView::highlight() {
