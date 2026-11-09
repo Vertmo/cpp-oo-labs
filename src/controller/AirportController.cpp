@@ -8,9 +8,8 @@ AirportController::AirportController(WaypointController &wpController)
     : wpController(wpController) {}
 
 void AirportController::addPassenger(Waypoint &origin, Waypoint &destination) {
-  // FIXME After Lab 2
-  // Passenger pass(origin, destination);
-  // passengers.push_back(pass);
+  Passenger pass(origin, destination);
+  passengers.push_back(pass);
 
   // TODO Lab 4
 }

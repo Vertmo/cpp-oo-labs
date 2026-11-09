@@ -5,9 +5,7 @@
 #include <QGraphicsSvgItem>
 #include <QGraphicsColorizeEffect>
 
-// FIXME After Lab 2
-// #include "model/Passenger.hpp"
-class Passenger;
+#include "model/Passenger.hpp"
 
 #include "qsvgrenderer.h"
 #include "view/FloorScene.hpp"

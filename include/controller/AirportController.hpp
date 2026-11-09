@@ -12,7 +12,7 @@
 class AirportController : public ClockedController {
 private:
   // Model
-  // std::vector<Passenger> passengers;
+  std::vector<Passenger> passengers;
   // Views
   // TODO Lab 4
   // Controller
