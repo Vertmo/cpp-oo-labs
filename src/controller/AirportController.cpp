@@ -20,15 +20,13 @@ const std::vector<FloorScene *> &AirportController::getScenes() {
 
 void AirportController::update(std::chrono::seconds dt) {
   ClockedController::update(dt);
-  // FIXME After Lab 6
-  // for (Passenger &p : passengers)
-  //   p.update(dt);
+  for (Passenger &p : passengers)
+    p.move(Vector2((float)(rand()%3-1)/10*dt.count(), (float)(rand()%3-1)/10*dt.count()));
 }
 
 void AirportController::unselectAllPassengers() {
-  // FIXME After Lab 6
-  // for (Passenger &p : passengers)
-  //   p.unselect();
+  for (Passenger &p : passengers)
+    p.unselect();
 }
 
 AirportController::~AirportController() {
