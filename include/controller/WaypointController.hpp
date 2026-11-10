@@ -30,6 +30,7 @@ public:
 
   void addEdge(WaypointView *wp);
   void load();
+  void save();
 
   /* Find an entrance with given name. May return NULL if not found */
   Waypoint *findEntrance(std::string &name);

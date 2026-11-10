@@ -3,7 +3,7 @@
 
 #include "model/waypoints/ArrivalGate.hpp"
 #include "model/waypoints/DepartureGate.hpp"
-// #include "model/waypoints/EntranceExit.hpp"
+#include "model/waypoints/EntranceExit.hpp"
 #include "model/waypoints/WalkingWaypoint.hpp"
 // #include "model/waypoints/Elevator.hpp"
 #include "controller/WaypointController.hpp"
@@ -16,8 +16,7 @@ WaypointController::WaypointController(int nbfloors) {
     scenes.push_back(floor);
   }
 
-  // FIXME After Lab 8
-  // load();
+  load();
 }
 
 const std::vector<FloorScene *> &WaypointController::getScenes() {
@@ -49,37 +48,18 @@ void WaypointController::load() {
   char c;
   while (ifs.get(c)) {
     switch (c) {
-    // FIXME After Lab 8
-    // case 'W': {
-    //   WalkingWaypoint *wp = new WalkingWaypoint();
-    //   ifs >> *wp;
-    //   addWaypoint(wp);
-    //   continue;
-    // }
-    // case 'A': {
-    //   ArrivalGate *wp = new ArrivalGate();
-    //   ifs >> *wp;
-    //   addArrivalGate(wp);
-    //   continue;
-    // }
-    // case 'D': {
-    //   DepartureGate *wp = new DepartureGate();
-    //   ifs >> *wp;
-    //   addDepartureGate(wp);
-    //   continue;
-    // }
-    // case 'E': {
-    //   EntranceExit *wp = new EntranceExit();
-    //   ifs >> *wp;
-    //   addWaypoint(wp);
-    //   continue;
-    // }
-    // case 'V': {
-    //   Elevator *wp = new Elevator();
-    //   ifs >> *wp;
-    //   addWaypoint(wp);
-    //   continue;
-    // }
+    case 'W': {
+      WalkingWaypoint *wp = new WalkingWaypoint();
+      ifs >> *wp;
+      addWaypoint(wp);
+      continue;
+    }
+    case 'E': {
+      EntranceExit *wp = new EntranceExit();
+      ifs >> *wp;
+      addWaypoint(wp);
+      continue;
+    }
     case '>': {
       int src, dest;
       ifs >> src >> dest;
@@ -91,7 +71,7 @@ void WaypointController::load() {
           wpDest = wp;
       }
       if (!wpSrc || !wpDest)
-          std::cout << "Could not find waypoint " << wpSrc << " or " << wpDest;
+          std::cout << "Could not find waypoint " << wpSrc << " or " << wpDest << std::endl;
       else
         wpSrc->addSucc(wpDest);
       continue;
@@ -104,6 +84,21 @@ void WaypointController::load() {
     }
   }
   ifs.close();
+}
+
+void WaypointController::save() {
+  std::cout << "Saving waypoints to " + filename << std::endl;
+  std::ofstream ofs;
+  ofs.open(filename, std::ofstream::out|std::ofstream::trunc);
+  for (const Waypoint *wp : waypoints) {
+    ofs << *wp << std::endl;
+  }
+  for (const Waypoint *wp1 : waypoints) {
+    for (const Waypoint *wp2 : wp1->getSuccessors()) {
+      ofs << "> " << wp1->getId() << " " << wp2->getId() << std::endl;
+    }
+  }
+  ofs.close();
 }
 
 Waypoint *WaypointController::findEntrance(std::string &name) {
