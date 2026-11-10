@@ -1,0 +1,9 @@
+obj/
+*.o
+aps
+aps.pro
+Makefile.auto
+.qmake.stash
+.cache/
+compile_commands.json
+
