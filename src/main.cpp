@@ -11,6 +11,7 @@
 #include "controller/WaypointController.hpp"
 // #include "controller/WaypointEditionController.hpp"
 
+#include "model/waypoints/EntranceExit.hpp"
 #include "model/waypoints/WalkingWaypoint.hpp"
 
 #include "view/AnalogClock.hpp"
@@ -113,7 +114,7 @@ void test_waypoints(WaypointController &wpc, Waypoint **wps) {
   Waypoint *wp_125 = new WalkingWaypoint(Vector2(285414, 6.2753e+06), 1); wpc.addWaypoint(wp_125);
   Waypoint *wp_126 = new WalkingWaypoint(Vector2(285415, 6.27532e+06), 1); wpc.addWaypoint(wp_126);
   Waypoint *wp_127 = new WalkingWaypoint(Vector2(285372, 6.2753e+06), 1); wpc.addWaypoint(wp_127);
-  Waypoint *wp_134 = new WalkingWaypoint(Vector2(285369, 6.27538e+06), 1); wpc.addWaypoint(wp_134);
+  Waypoint *wp_134 = new EntranceExit(Vector2(285369, 6.27538e+06), 1); wpc.addWaypoint(wp_134);
   Waypoint *wp_135 = new WalkingWaypoint(Vector2(285380, 6.27536e+06), 1); wpc.addWaypoint(wp_135);
   Waypoint *wp_136 = new WalkingWaypoint(Vector2(285435, 6.27539e+06), 1); wpc.addWaypoint(wp_136);
   Waypoint *wp_137 = new WalkingWaypoint(Vector2(285341, 6.27529e+06), 1); wpc.addWaypoint(wp_137);

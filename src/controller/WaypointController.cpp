@@ -106,23 +106,21 @@ void WaypointController::load() {
   ifs.close();
 }
 
-// FIXME After Lab 5
+Waypoint *WaypointController::findEntrance(std::string &name) {
+  for (Waypoint *wp : waypoints) {
+    if (wp->isEntrance(name))
+      return wp;
+  }
+  return NULL;  
+}
 
-// Waypoint *WaypointController::findEntrance(std::string &name) {
-//   for (Waypoint *wp : waypoints) {
-//     if (wp->isEntrance(name))
-//       return wp;
-//   }
-//   return NULL;  
-// }
-
-// Waypoint *WaypointController::findExit(std::string &name) {
-//    for (Waypoint *wp : waypoints) {
-//     if (wp->isExit(name))
-//       return wp;
-//   }
-//   return NULL;  
-// }
+Waypoint *WaypointController::findExit(std::string &name) {
+   for (Waypoint *wp : waypoints) {
+    if (wp->isExit(name))
+      return wp;
+  }
+  return NULL;  
+}
 
 // DepartureGate *WaypointController::findFreeDepartureGate(Terminal term) {
 //   for (DepartureGate *gate : departureGates) {

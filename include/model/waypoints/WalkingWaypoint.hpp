@@ -20,6 +20,7 @@ public:
   void addSucc(Waypoint *neighbour) override;
   void addPred(Waypoint *neighbour) override;
   std::vector<Waypoint *> getSuccessors() const override;
+  QColor getDisplayColor() override;
 };
 
 #endif

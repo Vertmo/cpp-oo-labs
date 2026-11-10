@@ -11,8 +11,7 @@ WaypointView::WaypointView(Waypoint &wp, FloorScene &scene)
   wp.subscribe(this);
   updatePositions();
 
-  // FIXME After Lab 5
-  // setBrush((wp.getDisplayColor()));
+  setBrush((wp.getDisplayColor()));
   setPen(QColor(0, 0, 0, 100));
 
   // Arrows

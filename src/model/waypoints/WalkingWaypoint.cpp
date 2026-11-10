@@ -31,3 +31,5 @@ void WalkingWaypoint::removeSuccessor(Waypoint *wp) {
   auto it = find(neighbours.begin(), neighbours.end(), wp);
   if(it != neighbours.end()) neighbours.erase(it);
 }
+
+QColor WalkingWaypoint::getDisplayColor() { return QColor(200, 200, 200, 100); }
