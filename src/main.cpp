@@ -811,12 +811,10 @@ int main(int argc, char *argv[]) {
   window.setCentralWidget(&view);
   window.show();
 
-  // ComputeItinerary test
+  // Passenger test
   Waypoint *wps[2];
   test_waypoints(wpController, wps);
-  Passenger pass(*wps[0], *wps[1]);
-  for (Waypoint *wp : pass.getItinerary())
-    wp->select();
+  aController.addPassenger(*wps[0], *wps[1]);
 
   return app.exec();
 }
