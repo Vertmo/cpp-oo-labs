@@ -25,8 +25,8 @@ aps.pro: $(SRCS) $(HEADERS)
 Makefile.auto: aps.pro
 	qmake -makefile -o $@ $^
 
-aps compile_commands.json: Makefile.auto $(SRCS) $(HEADERS)
-	bear -- make -f $< $@ -j4
+aps: Makefile.auto $(SRCS) $(HEADERS)
+	make -f $< $@ -j4
 
 run: aps
 	./$^
@@ -35,6 +35,6 @@ clean:
 	rm -rf $(OBJ_DIR) aps.pro Makefile.auto
 
 realclean: clean
-	rm -rf aps compile_commands.json
+	rm -rf aps
 
 # end
